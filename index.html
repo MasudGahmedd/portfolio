@@ -1,56 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      color: white;
-      text-align: center;
-      height: 100vh;
-      background: url("plufow-le-studio-aE8Mx8-vQss-unsplash.jpg") no-repeat center center/cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-
-    a {
-      text-decoration: none;
-      color: white;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 10px 20px;
-      border-radius: 8px;
-      transition: background 0.3s ease;
-    }
-
-    a:hover {
-      background: rgba(255, 255, 255, 0.2);
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ViewSocial</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>Hello, I'm Masud</h1>
-  <p>Welcome to my portfolio website.</p>
-  <a href="#projects">View My Work</a>
+<body class="bg-teal-800 text-white flex items-center justify-center min-h-screen font-sans">
+  <div class="text-center">
+    <!-- Logo -->
+    <h1 class="text-5xl font-extrabold mb-2">VIEWSOCIAL</h1>
+    <p class="text-lg mb-8">Meet.Chat.Connect</p>
+
+    <!-- Content area -->
+    <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+      
+      <!-- Left box -->
+      <div class="bg-white text-teal-800 w-52 h-80 rounded-xl flex items-center justify-center font-extrabold text-3xl text-center p-4 leading-tight rotate-6 shadow-lg">
+        MEET <br> CHAT <br> CONNECT <br> TALK
+      </div>
+
+      <!-- Right side -->
+      <div class="max-w-xs text-center">
+        <p class="mb-6">
+          The only social website made locally in Botswana for the people to connect, inspire, and basically have fun.
+        </p>
+        <div class="text-5xl font-extrabold mb-6">VS</div>
+        <div class="flex flex-col gap-3">
+          <button class="bg-teal-700 hover:bg-teal-600 px-6 py-2 rounded-lg font-semibold">Log in</button>
+          <button class="bg-teal-700 hover:bg-teal-600 px-6 py-2 rounded-lg font-semibold">Sign up</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </body>
 </html>
+
