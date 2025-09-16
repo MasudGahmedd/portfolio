@@ -1,0 +1,44 @@
+body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid #374151;
+    background-color: #1f2937;
+    color: #f9fafb;
+  }
+  
+  .input-field:focus {
+    outline: none;
+    border-color: #3b82f6;
+  }
+  
+  .shadcn-btn {
+    background-color: #3b82f6;
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  
+  .shadcn-btn:hover {
+    background-color: #2563eb;
+  }
+  
+  .shadcn-btn-secondary {
+    background-color: #6b7280;
+    color: #fff;
+    padding: 0.6rem 1rem;
+    border-radius: 0.75rem;
+    font-weight: 600;
+    transition: all 0.2s;
+  }
+  
+  .shadcn-btn-secondary:hover {
+    background-color: #4b5563;
+  }
+  

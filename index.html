@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Study Hub</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-gray-100 flex items-center justify-center min-h-screen">
+
+  <div id="auth-container" class="bg-gray-800 p-6 rounded-2xl shadow-xl w-full max-w-md">
+    <h1 class="text-3xl font-bold mb-6 text-center">Study Hub</h1>
+
+    <input id="name" type="text" placeholder="Full Name" class="input-field mb-3" />
+    <input id="email" type="email" placeholder="Email" class="input-field mb-3" />
+    <input id="password" type="password" placeholder="Password" class="input-field mb-3" />
+
+    <button id="signup-btn" class="shadcn-btn mb-2 w-full">Sign Up</button>
+    <button id="login-btn" class="shadcn-btn-secondary w-full">Login</button>
+  </div>
+
+  <script>
+    // Supabase Setup
+    const supabaseUrl = "https://pjqwaaooafhlzjloqdtv.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBqcXdhYW9vYWZobHpqbG9xZHR2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTc1OTgyMTksImV4cCI6MjA3MzE3NDIxOX0.AgI0p8vBXkWKk624fqX_uI5vcrPNwui5lpxC4ecZSc0";
+    const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+    const signupBtn = document.getElementById("signup-btn");
+    const loginBtn = document.getElementById("login-btn");
+
+    // SIGNUP
+    signupBtn.addEventListener("click", async () => {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!name || !email || !password) return alert("Fill all fields");
+
+      try {
+        const { data, error } = await supabase.auth.signUp({
+          email,
+          password,
+          options: { data: { name } } // store name in auth metadata
+        });
+
+        if (error) throw error;
+        alert("Signup successful! Check your email to confirm.");
+      } catch (err) {
+        alert(err.message);
+      }
+    });
+
+    // LOGIN
+    loginBtn.addEventListener("click", async () => {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
+
+      if (!email || !password) return alert("Fill all fields");
+
+      try {
+        const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+        if (error) throw error;
+
+        alert("Login successful! User ID: " + data.user.id);
+        // Optionally hide auth container and show dashboard
+        // authContainer.style.display = 'none';
+        // dashboard.style.display = 'block';
+      } catch (err) {
+        alert(err.message);
+      }
+    });
+  </script>
+</body>
+</html>
